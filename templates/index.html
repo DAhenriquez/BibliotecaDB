@@ -1,19 +1,195 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Menú Biblioteca</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Biblioteca UA</title>
 </head>
 <body>
-  <h1>Bienvenido a la Biblioteca</h1>
-  <p>Seleccione una acción:</p>
 
-  <ul>
-    <li><a href="prestar_libro.html">Prestar Libro</a></li>
-    <li><a href="reservar_box.html">Reservar Box</a></li>
-    <li><a href="actualizar_usuario.html">Actualizar Datos del Usuario</a></li>
-    <li><a href="agregar_libro.html">Agregar Libro</a></li>
-    <li><a href="eliminar_libro.html">Eliminar Libro</a></li>
-  </ul>
+    <h1>Sistema de Gestión de Biblioteca UA</h1>
+
+    <p>¡Bienvenido al sistema de gestión!</p>
+
+    <hr>
+
+    <h2>1. Búsqueda de Libros y Disponibilidad</h2>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Buscar Libros Disponibles</legend>
+            <label for="buscar_titulo_libro">Título del Libro (o inicio):</label><br>
+            <input type="text" id="buscar_titulo_libro" name="buscar_titulo_libro" placeholder="Ej: Fundamentos de Progr."><br><br>
+            <button type="submit">Buscar Libros Disponibles</button>
+            <br><br>
+            <h3>Resultados de Libros Disponibles:</h3>
+            <p>Aquí se mostrarán los libros disponibles que coincidan con la búsqueda.</p>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ISBN</th>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Género</th>
+                        <th>Fecha Publicación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>[ISBN_Ejemplo]</td>
+                        <td>[Título_Ejemplo]</td>
+                        <td>[Autor_Ejemplo]</td>
+                        <td>[Género_Ejemplo]</td>
+                        <td>[Fecha_Ejemplo]</td>
+                    </tr>
+                    </tbody>
+            </table>
+        </fieldset>
+    </form>
+
+    <hr>
+
+    <h2>2. Búsqueda de Boxes y Disponibilidad</h2>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Buscar Boxes Disponibles</legend>
+            <label for="fecha_box">Selecciona una Fecha:</label><br>
+            <input type="date" id="fecha_box" name="fecha_box"><br><br>
+
+            <label for="bloque_horario">Selecciona un Bloque Horario:</label><br>
+            <select id="bloque_horario" name="bloque_horario">
+                <option value="">--Selecciona--</option>
+                <option value="08:00-09:20">08:00 - 09:20</option>
+                <option value="09:30-10:50">09:30 - 10:50</option>
+                <option value="11:00-12:20">11:00 - 12:20</option>
+                <option value="12:30-13:50">12:30 - 13:50</option>
+                <option value="14:00-15:20">14:00 - 15:20</option>
+                <option value="15:30-16:50">15:30 - 16:50</option>
+                <option value="17:00-18:20">17:00 - 18:20</option>
+                <option value="18:30-19:50">18:30 - 19:50</option>
+                <option value="20:00-21:20">20:00 - 21:20</option>
+                <option value="21:30-22:50">21:30 - 22:50</option>
+            </select><br><br>
+            <button type="submit">Buscar Boxes Disponibles</button>
+            <br><br>
+            <h3>Resultados de Boxes Disponibles:</h3>
+            <p>Aquí se mostrarán los boxes disponibles para la fecha y horario seleccionados.</p>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID Box</th>
+                        <th>ID Edificio</th>
+                        <th>Capacidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>[ID_Box_Ejemplo]</td>
+                        <td>[ID_Edificio_Ejemplo]</td>
+                        <td>[Capacidad_Ejemplo]</td>
+                    </tr>
+                    </tbody>
+            </table>
+        </fieldset>
+    </form>
+
+    <hr>
+
+    <h2>3. Gestión de Libros (Agregar / Eliminar)</h2>
+
+    <h3>Agregar Nuevo Libro</h3>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Datos del Nuevo Libro</legend>
+            <label for="add_isbn">ISBN:</label><br>
+            <input type="number" id="add_isbn" name="add_isbn" required><br><br>
+
+            <label for="add_titulo">Título:</label><br>
+            <input type="text" id="add_titulo" name="add_titulo" required><br><br>
+
+            <label for="add_autor">Autor:</label><br>
+            <input type="text" id="add_autor" name="add_autor"><br><br>
+
+            <label for="add_genero">Género:</label><br>
+            <input type="text" id="add_genero" name="add_genero"><br><br>
+
+            <label for="add_fecha_publicacion">Fecha de Publicación:</label><br>
+            <input type="date" id="add_fecha_publicacion" name="add_fecha_publicacion"><br><br>
+
+            <button type="submit">Agregar Libro</button>
+        </fieldset>
+    </form>
+
+    <h3>Eliminar Libro</h3>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Eliminar Libro por ISBN</legend>
+            <label for="delete_isbn">ISBN del Libro a Eliminar:</label><br>
+            <input type="number" id="delete_isbn" name="delete_isbn"><br><br>
+            <button type="submit">Eliminar por ISBN</button>
+        </fieldset>
+    </form>
+    <hr>
+
+    <h2>4. Actualizar Datos de Usuario</h2>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Actualizar Usuario</legend>
+            <label for="update_rut_usuario">RUT del Usuario a Actualizar:</label><br>
+            <input type="number" id="update_rut_usuario" name="update_rut_usuario" required><br><br>
+            <button type="submit">Buscar Usuario para Actualizar</button>
+            <br><br>
+            <h3>Datos del Usuario (se cargarán aquí al buscar):</h3>
+            <p>Complete solo los campos que desea actualizar.</p>
+            <label for="update_nombre">Nuevo Nombre Completo:</label><br>
+            <input type="text" id="update_nombre" name="update_nombre"><br><br>
+
+            <label for="update_email">Nuevo Email:</label><br>
+            <input type="email" id="update_email" name="update_email"><br><br>
+
+            <label for="update_telefono">Nuevo Teléfono:</label><br>
+            <input type="number" id="update_telefono" name="update_telefono"><br><br>
+
+            <button type="submit">Actualizar Datos del Usuario</button>
+        </fieldset>
+    </form>
+
+    <hr>
+
+    <h2>5. Historial de Préstamos de Libros de Usuario</h2>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Ver Historial de Préstamos</legend>
+            <label for="historial_nombre_usuario">Nombre de Usuario:</label><br>
+            <input type="text" id="historial_nombre_usuario" name="historial_nombre_usuario" required placeholder="Ej: Juan Gómez"><br><br>
+            <button type="submit">Ver Historial</button>
+            <br><br>
+            <h3>Resultados del Historial:</h3>
+            <p>Aquí se mostrará el historial de libros prestados por el usuario.</p>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nombre Usuario</th>
+                        <th>Título Libro</th>
+                        <th>Fecha Inicio Préstamo</th>
+                        <th>Fecha Fin Préstamo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>[Nombre_Ejemplo]</td>
+                        <td>[Titulo_Ejemplo]</td>
+                        <td>[Inicio_Ejemplo]</td>
+                        <td>[Fin_Ejemplo]</td>
+                    </tr>
+                    </tbody>
+            </table>
+        </fieldset>
+    </form>
+
+    <br><br>
+    <footer>
+        <p>Sistema de Biblioteca UA - 2025</p>
+    </footer>
+
 </body>
 </html>
